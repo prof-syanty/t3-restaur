@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import { signIn, signOut, useSession } from "next-auth/react";
+import Head from "next/head";
+import Link from "next/link";
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
@@ -54,6 +55,11 @@ const Home: NextPage = () => {
           {hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}
         </div>
         <AuthShowcase />
+        <Link href={"/admin"}>
+          <a className="rounded-md border border-black bg-violet-50 px-4 py-2 text-xl shadow-lg hover:bg-violet-100">
+            Admin Dashboard
+          </a>
+        </Link>
       </main>
     </>
   );
