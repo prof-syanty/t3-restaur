@@ -1,18 +1,14 @@
 import DesktopSidebar from "@components/layouts/admin/navigation/desktop-sidebar";
 import AdminHeader from "@components/layouts/admin/navigation/header";
 import { siteSettings } from "@settings/site-settings";
-import React, { useState } from "react";
-import { twMerge } from "tailwind-merge";
+import React, { useEffect, useState } from "react";
 
 type AdminLayout = React.ComponentPropsWithoutRef<"main">;
 
 interface IAdminLayoutContext {
   miniDrawer: boolean;
   toggleMiniDrawer: () => void;
-  size: {
-    normal: number;
-    mini: number;
-  };
+  drawerWidth: number;
 }
 
 export const AdminLayoutContext = React.createContext<IAdminLayoutContext>({
@@ -20,28 +16,30 @@ export const AdminLayoutContext = React.createContext<IAdminLayoutContext>({
   toggleMiniDrawer: () => {
     /*  */
   },
-  size: {
-    ...siteSettings.sidebar.size,
-  },
+  drawerWidth: 60,
 });
 
 function AdminLayout({ children }: AdminLayout) {
   const [miniDrawer, setMiniDrawer] = useState(false);
   const toggleMiniDrawer = () => setMiniDrawer(!miniDrawer);
-  const { mini, normal } = { ...siteSettings.sidebar.size };
+  const [drawerWidth, setDrawerWidth] = useState(60);
+  const {
+    size: { mini, normal },
+  } = siteSettings.sidebar;
+  useEffect(() => {
+    setDrawerWidth(miniDrawer ? mini : normal);
+  }, [miniDrawer, mini, normal]);
   return (
     <AdminLayoutContext.Provider
       value={{
         miniDrawer,
         toggleMiniDrawer,
-        size: {
-          ...siteSettings.sidebar.size,
-        },
+        drawerWidth,
       }}
     >
       <div className="bg-body">
         <DesktopSidebar />
-        <div className={twMerge(`xl:ml-${miniDrawer ? mini : normal}`)}>
+        <div className={`xl:ml-${drawerWidth.toString()}`}>
           <AdminHeader />
           <main className="min-h-screen p-6">{children}</main>
         </div>

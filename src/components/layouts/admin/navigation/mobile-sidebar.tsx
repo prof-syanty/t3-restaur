@@ -18,7 +18,7 @@ function MobileSidebar() {
               )}
             </IconButton>
             <Drawer isDrawerOpen={isDrawerOpen} toggleDrawer={toggleDrawer}>
-              <div className="text-end">
+              <div className="flex justify-end">
                 <IconButton onClick={toggleDrawer}>
                   <CloseIcon size={20} />
                 </IconButton>

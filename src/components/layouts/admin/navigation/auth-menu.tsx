@@ -28,7 +28,7 @@ function AuthMenu() {
             <Image
               {...siteSettings.avatar}
               objectFit="cover"
-              className="rounded-full"
+              className=" flex-shrink-0 rounded-full"
             />
             <span className="absolute bottom-1 right-0 flex rounded-full bg-green-600 text-green-600 outline outline-white ">
               <DotIcon size={10} />

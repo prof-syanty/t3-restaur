@@ -10,7 +10,7 @@ function IconButton({ children, className, flat, ...other }: IconButtonProps) {
     <button
       {...other}
       className={twMerge(
-        "rounded-full bg-gray-100 p-1 text-gray-400",
+        "flex items-center justify-center rounded-full bg-gray-100 p-2 text-gray-400",
         flat && "bg-transparent",
         className
       )}

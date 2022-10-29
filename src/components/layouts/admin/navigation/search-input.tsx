@@ -1,6 +1,6 @@
 function SearchInput() {
   return (
-    <div className="relative hidden sm:block">
+    <div className="relative hidden lg:block">
       <input
         className="h-10 w-full rounded-lg border-none bg-slate-100 pl-4 pr-10 text-sm text-gray-200 shadow-sm focus:outline-none focus:ring-0 xl:w-96"
         id="search"

@@ -3,6 +3,7 @@ import {
   DrawerOpen,
   MailIcon,
   OrdersIcon,
+  SearchIcon,
 } from "@components/icons";
 import useAdminLayoutCtx from "@components/layouts/admin/hooks/useAdminLayoutCtx";
 import AuthMenu from "@components/layouts/admin/navigation/auth-menu";
@@ -40,7 +41,10 @@ function AdminHeader() {
 
             <div className=" flex flex-1 items-center justify-end gap-8">
               <SearchInput />
-              <div className="hidden gap-4 text-gray-500 sm:flex">
+              <div className="hidden items-center gap-4 text-gray-500 sm:flex">
+                <IconButton className="lg:hidden" flat>
+                  <SearchIcon size={20} />
+                </IconButton>
                 <LanguageMenu />
                 <NavLink icon={<MailIcon size={20} />} href="/admin/orders" />
                 <NavLink icon={<OrdersIcon size={20} />} href="/admin/orders" />

@@ -16,12 +16,12 @@ function SidebarContent() {
           <AsideItem
             text="Dashboard"
             href={"/admin"}
-            icon={<DashboardIcon size={30} />}
+            icon={<DashboardIcon size={20} />}
           />
           <AsideItem
             text="Category"
             href={"/admin/category/all"}
-            icon={<CategoryIcon size={30} />}
+            icon={<CategoryIcon size={20} />}
           />
         </ul>
       </div>
